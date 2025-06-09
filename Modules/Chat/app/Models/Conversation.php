@@ -7,6 +7,7 @@ use Modules\Chat\Models\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\Chat\Database\Factories\ConversationFactory;
 
 class Conversation extends Model
 {
@@ -18,6 +19,14 @@ class Conversation extends Model
         'last_message_id',
     ];
     
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory()
+    {
+        return ConversationFactory::new();
+    }
+
     public function user1(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id1');
