@@ -3,7 +3,7 @@
 namespace Modules\Chat\Models;
 
 use App\Models\User;
-use Modules\Chat\app\Models\Message;
+use Modules\Chat\Models\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

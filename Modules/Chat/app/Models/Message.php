@@ -1,15 +1,16 @@
 <?php
 
-namespace Modules\Chat\app\Models;
+namespace Modules\Chat\Models;
 
 use App\Models\User;
-use Modules\Chat\app\Models\Group;
+use Modules\Chat\Models\Group;
 use Modules\Chat\Models\Conversation;
-use Modules\Chat\app\Models\MessageAttachment;
+use Modules\Chat\Models\MessageAttachment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Modules\Chat\Database\Factories\MessageFactory;
 
 class Message extends Model
 {
@@ -48,5 +49,10 @@ class Message extends Model
     public function attachments(): HasMany
     {
         return $this->hasMany(MessageAttachment::class, 'message_id');
+    }
+
+    protected static function newFactory(): MessageFactory
+    {
+        return MessageFactory::new();
     }
 }

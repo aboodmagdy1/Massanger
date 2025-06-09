@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Chat\app\Models;
+namespace Modules\Chat\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;   
-use Modules\Chat\app\Models\Message;
+use Modules\Chat\Models\Message;
 
 class MessageAttachment extends Model
 {

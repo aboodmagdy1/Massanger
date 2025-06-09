@@ -1,14 +1,15 @@
 <?php
 
-namespace Modules\Chat\app\Models;
+namespace Modules\Chat\Models;
 
 use App\Models\User;
-use Modules\Chat\app\Models\Message;
+use Modules\Chat\Models\Message;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Modules\Chat\Database\Factories\GroupFactory;
 
 class Group extends Model
 {
@@ -41,4 +42,8 @@ class Group extends Model
             return $this->hasMany(Message::class, 'group_id');
         }
 
-}
+        protected static function newFactory(): GroupFactory
+        {
+            return GroupFactory::new();
+        }
+} 
